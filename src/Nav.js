@@ -7,7 +7,7 @@ function Nav() {
 
 
     const transitionNavBar=()=>{
-if(window.scroll>100){
+if(window.scrollY>100){
     setshow(true)
 }else{
     setshow(false)
@@ -17,13 +17,13 @@ if(window.scroll>100){
 
 
     useEffect(() => {
-        window.addEventListener("scroll",transitionNavBar)
-    return()=>window.removeEventListener("scroll",transitionNavBar)
+        window.addEventListener('scroll',transitionNavBar)
+    return()=>window.removeEventListener('scroll',transitionNavBar)
     
     }, [])
 
     return (
-        <div className={`nav ${show && "nav_black"}`}>
+        <div className={`nav ${show &&'nav_black'}`}>
         <div className='nav_content'>
         <img 
             className='nav_logo'
