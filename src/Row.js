@@ -35,7 +35,8 @@ const base_Url="https://image.tmdb.org/t/p/original/";
                     className={`row__poster ${islargeRow && "row__posterLarge"}`} src={`${base_Url}${islargeRow?
                         movie.poster_path:movie.backdrop_path}`} alt={movie.name}
                         ></img>
-                    ))
+                    )
+                    )
                 
                 )}
             </div>

@@ -1,0 +1,15 @@
+.loginscreen {
+  position: relative;
+  height: 100%;
+}
+
+.loginscreen_logo {
+  position: fixed;
+  left: 0;
+  width: 150px;
+  object-fit: contain;
+  padding-left: 20px;
+}
+
+.loginscreen_button {
+}
