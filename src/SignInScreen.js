@@ -1,16 +1,45 @@
-import React from 'react'
+import React, { useRef } from 'react'
 
 import './SignInScreen.css'
 
+import {auth} from './Firebase'
+
 function SignInScreen() {
+
+    const emailRef=useRef(null)
+    const passwordRef=useRef(null);
+
+const reg=(e)=>{
+e.preventDefault();
+
+auth.createUserWithEmailAndPassword(
+    emailRef.current.value,
+    passwordRef.current.value
+).then((authUser)=>{
+console.log(authUser);
+}).catch(err=>err.message)
+
+}
+
+const signIn=(e)=>{
+    e.preventDefault();
+    auth.signInWithEmailAndPassword(
+        emailRef.current.value,
+        passwordRef.current.value
+    ).then((authUser)=>{
+    console.log(authUser);
+    }).catch(err=>alert(err.message))
+    
+}
+
     return (
         <div className='signinscreen'>
             <form>
                 <h1>Sign In</h1>
-                <input placeholder="Email" type='email'/>
-                <input placeholder="password" type='password'/>
-                <button type='submit'>Sign In</button>
-                <h4><span className='signinscreen_span_text'>New to Netflix?</span><span className='s'> Sign Up now.</span></h4>
+                <input ref={emailRef} placeholder="Email" type='email'/>
+                <input ref={passwordRef} placeholder="password" type='password'/>
+                <button type='submit' onClick={signIn}>Sign In</button>
+                <h4><span className='signinscreen_span_text'>New to Netflix?</span><span className='signinscreen_span_link' onClick={reg}> Sign Up now.</span></h4>
             </form>
         </div>
     )
