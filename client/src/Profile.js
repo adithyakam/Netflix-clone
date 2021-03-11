@@ -6,6 +6,7 @@ import {useSelector} from 'react-redux'
 import {selectUser} from '../src/features/userSlice'
 
 import './Profile.css'
+import StripeCheckoutButton from './stripe-button.component'
 
 function Profile() {
     const user= useSelector(selectUser)
@@ -24,6 +25,7 @@ function Profile() {
                         <h2>{user.email}</h2>
                         <div className='profilescreen_plan'>
                         <h3> plans</h3>
+                        <StripeCheckoutButton price={1000}/>
                         <button 
                         onClick={()=>{auth.signOut()}}
                         className='profilescreen_signOut '>
