@@ -29,7 +29,7 @@ const StripeCheckoutButton = ({ price }) => {
 
   return (
     <StripeCheckout
-      label='Pay Now'
+      label='subscribe'
       name='Netflix-clone'
       billingAddress
       shippingAddress

@@ -23,9 +23,32 @@ function Profile() {
                     />
                     <div className='profilescreen_details'>
                         <h2>{user.email}</h2>
-                        <div className='profilescreen_plan'>
+                        <div className='profilescreen_plans'>
                         <h3> plans</h3>
-                        <StripeCheckoutButton price={1000}/>
+                        <div className='profilescreen_planMain'>
+                            <div className='profilescreen_plan'>
+                                <h2>1000$</h2>
+                                <h3>This plan includes</h3>
+                                <ul className='profilescreen_planList'>
+                                    <li>unlimited streaming</li>
+                                    <li>multipe access</li>
+                                    <li>3device support at a time</li>
+                                </ul>
+                                <StripeCheckoutButton id='profilescreen_stripeBtn' price={1000}/>
+
+                            </div>
+                            <div className='profilescreen_plan'>
+                                <h2>500$</h2>
+                                <h3>This plan includes</h3>
+                                <ul className='profilescreen_planList'>
+                                    <li>unlimited streaming</li>
+                                    <li>multipe access</li>
+                                    <li>1 device support at a time</li>
+                                </ul>
+                                <StripeCheckoutButton id='profilescreen_stripeBtn' price={500}/>
+
+                            </div>
+                        </div>
                         <button 
                         onClick={()=>{auth.signOut()}}
                         className='profilescreen_signOut '>
