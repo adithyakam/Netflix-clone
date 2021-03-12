@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import { Fragment } from 'react';
 
 import axios from './Axios'
 
@@ -31,10 +32,18 @@ const base_Url="https://image.tmdb.org/t/p/original/";
                 {movies.map(movie => (
                     ((islargeRow && movie.poster_path) ||
                     (!islargeRow && movie.backdrop_path)) && (
+                        <div className='row_poster_Div'>
                         <img key={movie.id} 
                     className={`row__poster ${islargeRow && "row__posterLarge"}`} src={`${base_Url}${islargeRow?
                         movie.poster_path:movie.backdrop_path}`} alt={movie.name}
                         ></img>
+                           <div className='row_posterDetails '>
+                            <h7 className='row_posterDetailsTitle'>{movie.name || movie.original_name || movie.original_title}</h7>
+        
+
+                           </div>
+
+                        </div>
                     )
                     )
                 
