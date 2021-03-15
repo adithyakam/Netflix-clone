@@ -30,7 +30,7 @@
 .row__poster:hover {
   transform: scale(1.08);
   background-color: rgba(0, 0, 0, 0.4);
-  -webkit-filter: brightness(65%);
+  -webkit-filter: brightness(75%);
 }
 
 .row__posterLarge {
@@ -42,7 +42,7 @@
   height: 100%;
   transform: scale(1.09);
   opacity: 1;
-  -webkit-filter: brightness(65%);
+  -webkit-filter: brightness(75%);
 }
 
 .row_posterDetails {
@@ -70,4 +70,9 @@
 .row_posterDetailsTitle {
   font-size: 0.6rem;
   font-weight: 800;
+}
+
+.row_posterDetailsStar {
+  height: 10px;
+  width: 10px;
 }

@@ -40,7 +40,10 @@ const base_Url="https://image.tmdb.org/t/p/original/";
                            <div className='row_posterDetails '>
                             <h7 className='row_posterDetailsTitle'>{movie.name || movie.original_name || movie.original_title}</h7>
         
-
+                            <div>
+                                <img className='row_posterDetailsStar' src='https://pngimg.com/uploads/star/star_PNG1597.png' alt='rating'/>
+                                <h7>{movie.vote_average}</h7>
+                            </div>
                            </div>
 
                         </div>
