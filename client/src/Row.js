@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { Fragment } from 'react';
+import movieTrailer from 'movie-trailer'
+
+
 
 import axios from './Axios'
 
@@ -7,6 +10,8 @@ import './Row.css'
  
 function Row({title,fetchUrl,islargeRow=false}) {
  const [movies, setmovies] = useState([])
+ const [trailer,setTrailer] = useState("");
+
     
 
 //https://image.tmdb.org/t/p/original//fQq1FWp1rC89xDrRMuyFJdFUdMd.jpg
@@ -24,6 +29,19 @@ const base_Url="https://image.tmdb.org/t/p/original/";
 
     fetchData();
  }, [fetchUrl])
+
+
+
+function getTrailer(movie){
+    
+    axios.get(`https://api.themoviedb.org/3/movie/${movie.id}/videos?api_key=9d2bff12ed955c7f1f74b83187f188ae`)
+   .then(res=>console.log(res.data.results))
+   
+    //https://www.youtube.com/watch?v=SUXWAEX2jlg <---- youtube
+
+
+}
+
 
  return (
         <div className="row">
@@ -44,8 +62,9 @@ const base_Url="https://image.tmdb.org/t/p/original/";
                                 <img className='row_posterDetailsStar' src='https://pngimg.com/uploads/star/star_PNG1597.png' alt='rating'/>
                                 <h7>{movie.vote_average}</h7>
                             </div>
-                           </div>
 
+                           </div>
+                           <button className="row_posterTrailer" onClick={()=>getTrailer(movie)}>Trailer</button>
                         </div>
                     )
                     )

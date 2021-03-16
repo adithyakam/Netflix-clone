@@ -1,4 +1,4 @@
-const API_KEY='221dc6e25949d1a24db21b9cac6e035a'
+const API_KEY=''
 
 
 const requests={
@@ -15,3 +15,5 @@ const requests={
 }
 
 export default requests;
+
+

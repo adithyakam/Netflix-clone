@@ -37,12 +37,16 @@
   max-height: 250px;
 }
 
-.row__posterLarge:hover {
-  width: 100%;
-  height: 100%;
-  transform: scale(1.09);
+.row_posterTrailer {
+  position: absolute;
+  top: 85%;
+  left: 25%;
   opacity: 1;
-  -webkit-filter: brightness(75%);
+}
+
+.row_posterDetails :hover {
+  opacity: 1;
+  z-index: 999;
 }
 
 .row_posterDetails {
