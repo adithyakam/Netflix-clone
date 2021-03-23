@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { Fragment } from 'react';
 import movieTrailer from 'movie-trailer'
+import Youtube from "react-youtube"
+
 
 
 
@@ -32,18 +34,34 @@ const base_Url="https://image.tmdb.org/t/p/original/";
 
 
 
-function getTrailer(movie){
+async function getTrailer(movie){
     
-    axios.get(`https://api.themoviedb.org/3/movie/${movie.id}/videos?api_key=9d2bff12ed955c7f1f74b83187f188ae`)
-   .then(res=>console.log(res.data.results))
+    const url=await axios.get(`https://api.themoviedb.org/3/movie/${movie.id}/videos?api_key=9d2bff12ed955c7f1f74b83187f188ae`)
+//    .then(res=>setTrailer(res.data?.results[0].key))
+  .then(res=>{
+        console.log(res.data.results);  
+    setTrailer(res.data?.results[0].key)})
+   .catch(err=>{
+       console.log(err)
+        window.alert("sorry ! no trailer available yet ")
+    })
    
     //https://www.youtube.com/watch?v=SUXWAEX2jlg <---- youtube
 
 
 }
 
+console.log(trailer);
+const opts = {
+    height : "390",
+    width : "100%",
+    playerVars : {
+        autoplay:1,
+    }
+};
 
  return (
+     <>
         <div className="row">
            <h2 >{title}</h2> 
             <div className='row_posters'>
@@ -72,6 +90,8 @@ function getTrailer(movie){
                 )}
             </div>
         </div>
+                    {trailer && <Youtube videoId={trailer} opts={opts}/>}
+</>
     )
 }
 
